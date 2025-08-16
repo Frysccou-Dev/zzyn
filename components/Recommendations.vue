@@ -43,13 +43,16 @@
             </svg>
           </button>
 
-          <div role="tablist" class="flex gap-3">
+          <div
+            role="tablist"
+            class="flex flex-wrap justify-center gap-3 max-w-full"
+          >
             <button
               v-for="(r, i) in recommendations"
               :key="r.id"
               :aria-selected="i === activeIndex"
               :class="[
-                'px-4 py-2 rounded-full font-medium transition-all focus:outline-none whitespace-nowrap',
+                'px-4 py-2 rounded-full font-medium transition-all focus:outline-none',
                 i === activeIndex
                   ? 'bg-gradient-to-r from-green-600 to-green-900 text-white shadow-lg scale-105'
                   : 'bg-black/30 text-green-200 hover:scale-105',
@@ -57,8 +60,14 @@
               @click="select(i)"
               @keydown.enter.prevent="select(i)"
             >
-              <span class="md:hidden">{{ r.short }}</span>
-              <span class="hidden md:inline">{{ r.title }}</span>
+              <span
+                class="md:hidden max-w-[160px] overflow-hidden truncate block"
+                >{{ r.short }}</span
+              >
+              <span
+                class="hidden md:inline max-w-[300px] overflow-hidden truncate block"
+                >{{ r.title }}</span
+              >
             </button>
           </div>
 
@@ -142,11 +151,6 @@
                       />
                     </svg>
                   </a>
-                  <button
-                    class="px-5 py-3 rounded-full bg-black/30 text-green-200 font-semibold hover:bg-black/40 transition"
-                  >
-                    Save
-                  </button>
                 </div>
               </div>
             </div>
