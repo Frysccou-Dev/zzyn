@@ -122,6 +122,11 @@
         <div class="lg:col-span-5 flex justify-center lg:justify-end">
           <div class="relative w-full max-w-[520px]">
             <div class="card-main">
+              <img
+                src="/oshinoko-banner.png"
+                alt="Oshi no Ko cover"
+                class="card-image"
+              />
               <div class="card-gradient" />
               <div class="card-stripes" />
               <div class="card-content">
@@ -419,5 +424,20 @@ body,
 section[aria-label='Main hero'] {
   max-width: 100vw;
   overflow-x: hidden;
+}
+.card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0.96;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1), filter 0.45s ease;
+}
+.card-main:hover .card-image {
+  transform: scale(1.03);
+  filter: brightness(1.02);
 }
 </style>
