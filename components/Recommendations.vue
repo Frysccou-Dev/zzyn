@@ -94,7 +94,7 @@
         </div>
 
         <div class="mt-8">
-          <transition name="fade-slide" mode="out-in">
+          <transition name="fancy-card" mode="out-in">
             <div
               :key="active?.id"
               class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
@@ -247,6 +247,62 @@ defineOptions({ name: 'AnimeRecomendations' });
 </script>
 
 <style scoped>
+.fancy-card-enter-active {
+  animation: fancy-in 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.fancy-card-leave-active {
+  animation: fancy-out 420ms cubic-bezier(0.55, 0.06, 0.68, 0.19) both;
+}
+@keyframes fancy-in {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) translateY(20px) scale(0.98) rotateX(12deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: perspective(900px) translateY(-8px) scale(1.03) rotateX(-4deg);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(900px) translateY(0) scale(1) rotateX(0);
+    filter: none;
+  }
+}
+@keyframes fancy-out {
+  0% {
+    opacity: 1;
+    transform: perspective(900px) translateY(0) scale(1) rotateX(0);
+    filter: none;
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(900px) translateY(-12px) scale(0.98) rotateX(8deg);
+    filter: blur(6px);
+  }
+}
+.fancy-card-enter-active .portrait img {
+  animation: image-pop 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 80ms;
+}
+@keyframes image-pop {
+  0% {
+    opacity: 0;
+    transform: scale(1.06) rotate(-2deg);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.01) rotate(0.5deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: none;
+  }
+}
 .fade-slide-enter-active,
 .fade-slide-leave-active {
   animation: fade-slide 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
