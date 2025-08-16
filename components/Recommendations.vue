@@ -10,14 +10,9 @@
           Animes
         </p>
         <h2
-          class="mt-6 text-[2rem] md:text-5xl font-extrabold leading-tight text-green-50"
+          class="mt-6 text-[2.4rem] md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-800 leading-tight"
         >
-          Animes
-          <span
-            class="uppercase text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-green-400 text-3xl md:text-5xl font-extrabold"
-            >WE</span
-          >
-          recommend
+          Animes WE recommend
         </h2>
         <p class="mt-4 text-lg text-green-200/90 max-w-2xl mx-auto">
           Handpicked anime picks for relaxing breaks, full of heart, style and
@@ -26,21 +21,66 @@
       </div>
 
       <div class="mt-12">
-        <div role="tablist" class="flex gap-3 overflow-x-auto pb-4">
+        <div class="flex items-center justify-center gap-4">
           <button
-            v-for="(r, i) in recommendations"
-            :key="r.id"
-            :aria-selected="i === activeIndex"
-            :class="[
-              'px-4 py-2 rounded-full font-medium transition-all focus:outline-none whitespace-nowrap',
-              i === activeIndex
-                ? 'bg-gradient-to-r from-green-600 to-green-900 text-white shadow-lg scale-105'
-                : 'bg-black/30 text-green-200 hover:scale-105',
-            ]"
-            @click="select(i)"
-            @keydown.enter.prevent="select(i)"
+            class="p-2 rounded-full bg-black/30 text-green-200 hover:bg-black/40 transition"
+            :aria-label="'Previous'"
+            @click="prev"
           >
-            <span class="hidden md:inline">{{ r.tag }} · </span>{{ r.short }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <div role="tablist" class="flex gap-3">
+            <button
+              v-for="(r, i) in recommendations"
+              :key="r.id"
+              :aria-selected="i === activeIndex"
+              :class="[
+                'px-4 py-2 rounded-full font-medium transition-all focus:outline-none whitespace-nowrap',
+                i === activeIndex
+                  ? 'bg-gradient-to-r from-green-600 to-green-900 text-white shadow-lg scale-105'
+                  : 'bg-black/30 text-green-200 hover:scale-105',
+              ]"
+              @click="select(i)"
+              @keydown.enter.prevent="select(i)"
+            >
+              <span class="md:hidden">{{ r.short }}</span>
+              <span class="hidden md:inline">{{ r.title }}</span>
+            </button>
+          </div>
+
+          <button
+            class="p-2 rounded-full bg-black/30 text-green-200 hover:bg-black/40 transition"
+            :aria-label="'Next'"
+            @click="next"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </button>
         </div>
 
@@ -50,17 +90,14 @@
               :key="active?.id"
               class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
             >
-              <div
-                class="rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center"
-              >
-                <NuxtImg
-                  :src="active?.image"
-                  :alt="active?.title"
-                  class="w-full h-[560px] md:h-[720px] object-cover transform hover:scale-105 transition-transform duration-500"
-                  width="420"
-                  height="720"
-                  sizes="(min-width: 768px) 45vw, 90vw"
-                />
+              <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <div class="portrait w-full">
+                  <img
+                    :src="active?.image"
+                    :alt="active?.title"
+                    class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
 
               <div>
@@ -105,6 +142,11 @@
                       />
                     </svg>
                   </a>
+                  <button
+                    class="px-5 py-3 rounded-full bg-black/30 text-green-200 font-semibold hover:bg-black/40 transition"
+                  >
+                    Save
+                  </button>
                 </div>
               </div>
             </div>
@@ -188,6 +230,15 @@ function select(i: number) {
   activeIndex.value = i;
 }
 
+function prev() {
+  activeIndex.value =
+    (activeIndex.value - 1 + recommendations.length) % recommendations.length;
+}
+
+function next() {
+  activeIndex.value = (activeIndex.value + 1) % recommendations.length;
+}
+
 defineOptions({ name: 'AnimeRecomendations' });
 </script>
 
@@ -205,5 +256,10 @@ defineOptions({ name: 'AnimeRecomendations' });
     opacity: 1;
     transform: translateY(0);
   }
+}
+.portrait {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 </style>

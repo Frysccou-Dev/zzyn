@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/image-edge',
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/scripts',
