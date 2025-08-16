@@ -6,11 +6,11 @@
     <div class="absolute inset-0 z-0 pointer-events-none">
       <div
         class="absolute -left-40 -top-44 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-green-700/28 to-green-300/12 blur-3xl animate-orbit"
-      ></div>
+      />
       <div
         class="absolute right-[-120px] top-16 w-[460px] h-[460px] rounded-full bg-gradient-to-br from-pink-500/14 to-purple-600/08 blur-2xl animate-tilt"
-      ></div>
-      <div class="absolute inset-0 bg-black/56 backdrop-blur-sm"></div>
+      />
+      <div class="absolute inset-0 bg-black/56 backdrop-blur-sm" />
     </div>
 
     <div class="container mx-auto px-6 py-28 relative z-10">
@@ -122,8 +122,8 @@
         <div class="lg:col-span-5 flex justify-center lg:justify-end">
           <div class="relative w-full max-w-[520px]">
             <div class="card-main">
-              <div class="card-gradient"></div>
-              <div class="card-stripes"></div>
+              <div class="card-gradient" />
+              <div class="card-stripes" />
               <div class="card-content">
                 <div class="card-badge">New</div>
                 <h3 class="card-title">Oshi no Ko</h3>
@@ -225,9 +225,11 @@ defineOptions({ name: 'AppHero' });
 </script>
 
 <style>
-    html, body, #app {
-        overflow-x: hidden;
-    }
+html,
+body,
+#app {
+  overflow-x: hidden;
+}
 .container {
   max-width: 1200px;
   margin-inline: auto;
