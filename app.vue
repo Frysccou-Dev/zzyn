@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen w-full relative bg-black" aria-hidden="true">
+  <div class="min-h-screen w-full bg-black" aria-hidden="true">
     <div
       class="absolute inset-0 z-0"
       style="
@@ -11,5 +11,16 @@
           #000000;
       "
     />
+    <div class="z-10">
+      <Hero />
+    </div>
+    <Info />
+    <Recommendations />
   </div>
 </template>
+
+<script setup lang="ts">
+import Hero from '~/components/Hero.vue';
+import Info from '~/components/Info.vue';
+import Recommendations from '~/components/Recommendations.vue';
+</script>
