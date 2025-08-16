@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+:root {
+  --color-green-50: #f4f9f7;
+  --color-green-100: #dbece5;
+  --color-green-200: #b6d9cb;
+  --color-green-300: #8abeac;
+  --color-green-400: #629f8c;
+  --color-green-500: #46816f;
+  --color-green-600: #38695b;
+  --color-green-700: #30554c;
+  --color-green-800: #29463e;
+  --color-green-900: #263b36;
+  --color-green-950: #12211e;
+}
