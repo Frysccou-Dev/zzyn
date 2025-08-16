@@ -99,13 +99,15 @@
               :key="active?.id"
               class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
             >
-              <div class="rounded-2xl overflow-hidden shadow-2xl">
-                <div class="portrait w-full">
-                  <img
-                    :src="active?.image"
-                    :alt="active?.title"
-                    class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
+              <div class="rounded-2xl shadow-2xl">
+                <div class="frame" :style="frameStyle">
+                  <div class="portrait w-full">
+                    <img
+                      :src="active?.image"
+                      :alt="active?.title"
+                      class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -230,6 +232,23 @@ const recommendations = [
 const activeIndex = ref(0);
 const active = computed(() => recommendations[activeIndex.value]);
 
+// Gradientes por tab (usarás estos colores)
+const gradients = [
+  ['#A7DFF0', '#EDBAD1', '#FAE4EF', '#F8F810'],
+  ['#7B6146', '#44372F', '#93B8B8', '#944946'],
+  ['#22c55e', '#16a34a', '#4ade80', '#10b981', '#065f46'],
+  ['#1A77A1', '#F7506B', '#F7D384', '#ADD8CC'],
+  ['#C322B9', '#FDF2FE', '#D8D4FC', '#FBD2EB'],
+];
+
+// Estilo de la frame: expone la variable CSS --frame-gradient usada en ::before
+const frameStyle = computed(() => {
+  const cols = gradients[activeIndex.value] ?? gradients[2];
+  return {
+    '--frame-gradient': `linear-gradient(90deg, ${cols.join(', ')})`,
+  };
+});
+
 function select(i: number) {
   activeIndex.value = i;
 }
@@ -321,5 +340,36 @@ defineOptions({ name: 'AnimeRecomendations' });
   aspect-ratio: 2 / 3;
   overflow: hidden;
   border-radius: 1rem;
+  position: relative;
+  z-index: 2;
+}
+.frame {
+  position: relative;
+  display: block;
+}
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: calc(1rem + 6px);
+  background: var(
+    --frame-gradient,
+    linear-gradient(90deg, #22c55e, #16a34a, #4ade80, #10b981, #065f46)
+  );
+  background-size: 300% 300%;
+  z-index: 1;
+  animation: green-shine 3.8s linear infinite;
+  pointer-events: none;
+}
+@keyframes green-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
