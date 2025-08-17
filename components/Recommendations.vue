@@ -177,7 +177,7 @@ const recommendations = [
       'A charming rom-com where a shy boy understands the Russian mumbles of his seemingly cold classmate, who is unaware that he can hear her true, heartfelt feelings.',
     reason:
       'A fresh and witty take on the classic rom-com with great character dynamics and funny, heartwarming misunderstandings that keep you hooked.',
-    link: '#',
+    link: 'https://anilist.co/anime/181641/Tokidoki-Bosotto-Russiago-de-Dereru-Tonari-no-Alyasan-Season-2/',
   },
   {
     id: 'a2',
@@ -189,7 +189,7 @@ const recommendations = [
       'A heartwarming story about a lonely boy who loves traditional dolls and a popular girl with a secret passion for cosplay, as they collaborate and grow closer.',
     reason:
       'Visually stunning and incredibly wholesome, this series beautifully explores passion and self-discovery with a feel-good romance that will lift your spirits.',
-    link: '#',
+    link: 'https://anilist.co/anime/154768/My-DressUp-Darling-Season-2/',
   },
   {
     id: 'a3',
@@ -201,7 +201,7 @@ const recommendations = [
       'An epic fantasy following the long-lived elf mage Frieren as she travels after the defeat of the Demon King, reflecting on her relationships and the passage of time.',
     reason:
       'A unique and profound fantasy series with a gentle pace and breathtaking animation that tackles deep themes of friendship, legacy, and the nature of life itself.',
-    link: '#',
+    link: 'https://anilist.co/anime/154587/Frieren-Beyond-Journeys-End/',
   },
   {
     id: 'a4',
@@ -225,14 +225,13 @@ const recommendations = [
       'A gripping mystery-drama about a doctor reincarnated as the son of his favorite idol, as he navigates the dark secrets and intense pressures of the entertainment industry.',
     reason:
       'An explosive and original story that combines a shocking mystery with a realistic look at the idol world. It’s a fast-paced thriller with intelligent writing and unexpected twists.',
-    link: '#',
+    link: 'https://anilist.co/anime/185407/Takopis-Original-Sin/',
   },
 ];
 
 const activeIndex = ref(0);
 const active = computed(() => recommendations[activeIndex.value]);
 
-// Gradientes por tab (usarás estos colores)
 const gradients = [
   ['#A7DFF0', '#EDBAD1', '#FAE4EF', '#F8F810'],
   ['#7B6146', '#44372F', '#93B8B8', '#944946'],
@@ -241,9 +240,9 @@ const gradients = [
   ['#C322B9', '#FDF2FE', '#D8D4FC', '#FBD2EB'],
 ];
 
-// Estilo de la frame: expone la variable CSS --frame-gradient usada en ::before
 const frameStyle = computed(() => {
-  const cols = gradients[activeIndex.value] ?? gradients[2];
+  const cols = gradients[activeIndex.value] ??
+    gradients[2] ?? ['#22c55e', '#16a34a', '#4ade80', '#10b981', '#065f46'];
   return {
     '--frame-gradient': `linear-gradient(90deg, ${cols.join(', ')})`,
   };

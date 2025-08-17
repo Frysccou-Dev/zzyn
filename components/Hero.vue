@@ -3,12 +3,12 @@
     class="relative w-full min-h-screen flex items-center z-10 overflow-hidden"
     aria-label="Main hero"
   >
-    <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="absolute inset-0 z-0 pointer-events-none decor-clip">
       <div
-        class="absolute -left-40 -top-44 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-green-700/28 to-green-300/12 blur-3xl animate-orbit"
+        class="absolute decor-left -top-44 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-green-700/28 to-green-300/12 blur-3xl animate-orbit"
       />
       <div
-        class="absolute right-[-120px] top-16 w-[460px] h-[460px] rounded-full bg-gradient-to-br from-pink-500/14 to-purple-600/08 blur-2xl animate-tilt"
+        class="absolute decor-right top-16 w-[460px] h-[460px] rounded-full bg-gradient-to-br from-pink-500/14 to-purple-600/08 blur-2xl animate-tilt"
       />
       <div class="absolute inset-0 bg-black/56 backdrop-blur-sm" />
     </div>
@@ -123,7 +123,7 @@
           <div class="relative w-full max-w-[520px]">
             <div class="card-main">
               <img
-                src="/oshinoko-banner.png"
+                src="/cote-banner.jpg"
                 alt="Oshi no Ko cover"
                 class="card-image"
               />
@@ -131,20 +131,14 @@
               <div class="card-stripes" />
               <div class="card-content">
                 <div class="card-badge">New</div>
-                <h3 class="card-title">Oshi no Ko</h3>
+                <h3 class="card-title">Classroom of the Elite</h3>
                 <p class="card-sub">Thriller · Mystery · Impactful</p>
                 <div class="card-tags">
                   <span class="tag">Thriller</span>
-                  <span class="tag">Mystery</span>
+                  <span class="tag">Psychological</span>
                   <span class="tag">Popular</span>
                 </div>
               </div>
-            </div>
-
-            <div class="stacked-mini mt-4 flex gap-3 justify-end">
-              <div class="mini-card">Romance</div>
-              <div class="mini-card">Slice of Life</div>
-              <div class="mini-card">Fantasy</div>
             </div>
 
             <div
@@ -164,7 +158,7 @@
                   d="M12 6v6l4 2"
                 />
               </svg>
-              <span class="text-sm">New: Oshi no Ko · Thriller</span>
+              <span class="text-sm">New 4th Season</span>
             </div>
           </div>
         </div>
@@ -234,6 +228,25 @@ html,
 body,
 #app {
   overflow-x: hidden;
+}
+.decor-clip {
+  overflow: hidden;
+}
+.decor-left,
+.decor-right {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (min-width: 1024px) {
+  .decor-left {
+    left: -40px;
+    transform: none;
+  }
+  .decor-right {
+    left: auto;
+    right: -120px;
+    transform: none;
+  }
 }
 .container {
   max-width: 1200px;
@@ -421,10 +434,6 @@ body,
     margin-inline: auto;
   }
 }
-section[aria-label='Main hero'] {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 .card-image {
   position: absolute;
   inset: 0;
@@ -433,11 +442,16 @@ section[aria-label='Main hero'] {
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  opacity: 0.96;
+  opacity: 1;
+  filter: brightness(0.3);
   transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1), filter 0.45s ease;
 }
 .card-main:hover .card-image {
   transform: scale(1.03);
-  filter: brightness(1.02);
+  filter: brightness(0.85);
+}
+section[aria-label='Main hero'] {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 </style>
