@@ -1,7 +1,9 @@
 <template>
-  <aside class="fixed left-4 lg:left-8 top-1/2 transform -translate-y-1/2 z-50">
+  <aside
+    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 lg:left-8 lg:top-1/2 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2 z-50"
+  >
     <nav
-      class="flex flex-col items-center gap-3 p-2 bg-black/30 backdrop-blur-lg rounded-full border border-green-900/20 shadow-[0_10px_30px_rgba(2,6,23,0.6)]"
+      class="flex flex-row lg:flex-col items-center gap-3 p-2 bg-black/30 backdrop-blur-lg rounded-full border border-green-900/20 shadow-[0_10px_30px_rgba(2,6,23,0.6)]"
     >
       <div
         v-for="item in items"
