@@ -16,6 +16,7 @@
     </div>
     <Info />
     <Recommendations />
+    <BookADemo />
   </div>
 </template>
 
@@ -23,4 +24,5 @@
 import Hero from '~/components/Hero.vue';
 import Info from '~/components/Info.vue';
 import Recommendations from '~/components/Recommendations.vue';
+import BookADemo from './components/BookADemo.vue';
 </script>
