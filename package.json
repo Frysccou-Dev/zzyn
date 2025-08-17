@@ -16,6 +16,7 @@
     "@nuxt/ui": "^3.3.2",
     "@unhead/vue": "^2.0.14",
     "eslint": "^9.33.0",
+    "lucide-vue-next": "^0.539.0",
     "nuxt": "^4.0.3",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2",

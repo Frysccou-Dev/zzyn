@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      include: ['@nuxt/ui'],
+      include: ['@nuxt/ui', 'lucide-vue-next'],
       exclude: ['@tailwindcss/oxide', 'lightningcss'],
     },
   },
