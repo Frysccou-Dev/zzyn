@@ -17,6 +17,7 @@
     <Info />
     <Recommendations />
     <BookADemo />
+    <ContactUs />
   </div>
 </template>
 
@@ -25,4 +26,5 @@ import Hero from '~/components/Hero.vue';
 import Info from '~/components/Info.vue';
 import Recommendations from '~/components/Recommendations.vue';
 import BookADemo from './components/BookADemo.vue';
+import ContactUs from './components/ContactUs.vue';
 </script>

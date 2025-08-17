@@ -5,8 +5,22 @@
     <div class="max-w-6xl w-full px-6 py-20">
       <div class="mx-auto max-w-4xl text-center">
         <p
-          class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-green-900/40 text-green-200"
+          class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-black/30 text-green-200 text-sm font-semibold uppercase tracking-wide"
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 text-green-300"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 20l9-7-9-7-9 7 9 7z"
+            />
+          </svg>
           Animes
         </p>
         <h2
@@ -65,7 +79,7 @@
                 >{{ r.short }}</span
               >
               <span
-                class="hidden md:inline max-w-[300px] overflow-hidden truncate block"
+                class="hidden md:inline max-w-[300px] overflow-hidden truncate"
                 >{{ r.title }}</span
               >
             </button>
@@ -106,7 +120,7 @@
                       :src="active?.image"
                       :alt="active?.title"
                       class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                    />
+                    >
                   </div>
                 </div>
               </div>
