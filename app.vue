@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen w-full bg-black" aria-hidden="true">
+  <div class="w-full bg-black" aria-hidden="true">
     <div
       class="absolute inset-0 z-0"
       style="
@@ -18,6 +18,7 @@
     <Recommendations />
     <BookADemo />
     <ContactUs />
+    <Footer />
   </div>
 </template>
 
@@ -27,4 +28,5 @@ import Info from '~/components/Info.vue';
 import Recommendations from '~/components/Recommendations.vue';
 import BookADemo from './components/BookADemo.vue';
 import ContactUs from './components/ContactUs.vue';
+import Footer from './components/layout/Footer.vue';
 </script>
