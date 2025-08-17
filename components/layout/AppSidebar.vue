@@ -26,7 +26,7 @@
             "
           />
           <span
-            class="pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-green-950 bg-gradient-to-r from-green-100 to-green-200/70 opacity-0 translate-x-1 scale-95 blur-sm transition-all duration-330 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100"
+            class="pointer-events-none absolute lg:left-full lg:ml-3 lg:top-1/2 lg:-translate-y-1/2 left-1/2 -bottom-3 transform -translate-x-1/2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold text-white bg-black/90 opacity-0 scale-95 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 z-50 shadow-lg"
           >
             {{ item.label }}
           </span>
