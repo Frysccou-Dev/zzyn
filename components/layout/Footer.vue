@@ -44,43 +44,43 @@
       <div class="flex flex-col items-end gap-2">
         <div class="flex items-center gap-3">
           <a
-            href="https://linkedin.com/in/your-profile"
+            href="https://www.linkedin.com/in/espindola-francisco/"
             target="_blank"
             rel="noopener"
             aria-label="LinkedIn"
             class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/10 text-green-300 hover:bg-black/20 hover:text-green-400 transition transform hover:-translate-y-1"
           >
-            <LucideIcon name="linkedin" class="w-5 h-5" />
+            <Linkedin class="w-5 h-5" />
           </a>
 
           <a
-            href="https://music.youtube.com/"
+            href="https://music.youtube.com/playlist?list=PLr8nCm0aobtRA0SAeeK4Fa9tbWf-r-ton"
             target="_blank"
             rel="noopener"
             aria-label="YouTube Music"
             class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/10 text-green-300 hover:bg-black/20 hover:text-green-400 transition transform hover:-translate-y-1"
           >
-            <LucideIcon name="youtube" class="w-5 h-5" />
+            <Youtube class="w-5 h-5" />
           </a>
 
           <a
-            href="https://github.com/"
+            href="https://github.com/esspindola"
             target="_blank"
             rel="noopener"
             aria-label="GitHub"
             class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/10 text-green-300 hover:bg-black/20 hover:text-green-400 transition transform hover:-translate-y-1"
           >
-            <LucideIcon name="github" class="w-5 h-5" />
+            <Github class="w-5 h-5" />
           </a>
 
           <a
-            href="https://instagram.com/"
+            href="https://www.instagram.com/Frysccou/"
             target="_blank"
             rel="noopener"
             aria-label="Instagram"
             class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/10 text-green-300 hover:bg-black/20 hover:text-green-400 transition transform hover:-translate-y-1"
           >
-            <LucideIcon name="instagram" class="w-5 h-5" />
+            <Instagram class="w-5 h-5" />
           </a>
         </div>
 
@@ -97,7 +97,9 @@
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Linkedin, Youtube, Github, Instagram } from 'lucide-vue-next';
+</script>
 
 <style scoped>
 .brand-glow {
