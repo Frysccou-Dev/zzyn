@@ -1,5 +1,6 @@
 <template>
   <section
+    id="recommendations"
     class="w-full min-h-screen flex items-center justify-center bg-transparent relative z-10"
   >
     <div class="max-w-6xl w-full px-6 py-20">

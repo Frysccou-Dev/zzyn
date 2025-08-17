@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { Home, Info, List, Play, Mail } from 'lucide-vue-next';
 
 const active = ref('home');
@@ -54,6 +54,45 @@ const items = [
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
+const targets = ['home', 'info', 'recommendations', 'demo', 'contact'];
+const aliasMap: Record<string, string> = { 'demo-form': 'demo' };
+let ticking = false;
+
+function setActiveFromHash() {
+  const h = window.location.hash.replace('#', '');
+  const mapped = aliasMap[h] || h;
+  if (targets.includes(mapped)) {
+    active.value = mapped;
+  }
+}
+
+function updateActive() {
+  const center = window.innerHeight / 2;
+  let best = targets[0] || 'home';
+  let bestDist = Number.POSITIVE_INFINITY;
+  for (const id of targets) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const r = el.getBoundingClientRect();
+    const mid = r.top + r.height / 2;
+    const d = Math.abs(mid - center);
+    if (d < bestDist) {
+      bestDist = d;
+      best = id;
+    }
+  }
+  active.value = best;
+}
+
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    updateActive();
+    ticking = false;
+  });
+}
+
 function activate(item: { id: string }) {
   active.value = item.id;
   const el = document.querySelector(`#${item.id}`);
@@ -61,6 +100,17 @@ function activate(item: { id: string }) {
     (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
+
+onMounted(() => {
+  updateActive();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('hashchange', setActiveFromHash);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll);
+  window.removeEventListener('hashchange', setActiveFromHash);
+});
 </script>
 
 <style>

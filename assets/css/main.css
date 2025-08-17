@@ -13,3 +13,7 @@
   --color-green-900: #263b36;
   --color-green-950: #12211e;
 }
+
+html {
+  scroll-behavior: smooth;
+}

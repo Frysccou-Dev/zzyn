@@ -1,5 +1,6 @@
 <template>
   <section
+    id="home"
     class="relative w-full min-h-screen flex items-center z-10 overflow-hidden"
     aria-label="Main hero"
   >

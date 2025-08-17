@@ -1,5 +1,8 @@
 <template>
-  <section class="w-full flex items-center justify-center relative z-10">
+  <section
+    id="info"
+    class="w-full flex items-center justify-center relative z-10"
+  >
     <div class="max-w-6xl w-full px-6 py-20">
       <div class="mx-auto max-w-4xl text-center">
         <p
@@ -112,7 +115,7 @@
 
       <div class="mt-10 flex items-center justify-center">
         <a
-          href="#"
+          href="#recommendations"
           class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-green-700 to-green-900 text-white font-semibold shadow-lg hover:scale-105 transition transform duration-200"
         >
           Explore Now
