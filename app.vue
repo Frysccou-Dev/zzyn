@@ -1,5 +1,6 @@
 <template>
   <div class="w-full bg-black" aria-hidden="true">
+    <AppSidebar />
     <div
       class="absolute inset-0 z-0"
       style="
@@ -29,4 +30,5 @@ import Recommendations from '~/components/Recommendations.vue';
 import BookADemo from './components/BookADemo.vue';
 import ContactUs from './components/ContactUs.vue';
 import Footer from './components/layout/Footer.vue';
+import AppSidebar from '~/components/layout/AppSidebar.vue';
 </script>
