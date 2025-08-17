@@ -83,24 +83,12 @@
             >
               Learn more
             </button>
+          </div>
 
-            <div class="ml-2 flex items-center gap-3">
-              <div
-                class="px-3 py-1 rounded-full bg-black/30 text-green-200 text-sm"
-              >
-                Free
-              </div>
-              <div
-                class="px-3 py-1 rounded-full bg-black/30 text-green-200 text-sm"
-              >
-                Curated
-              </div>
-              <div
-                class="px-3 py-1 rounded-full bg-black/30 text-green-200 text-sm"
-              >
-                Updated
-              </div>
-            </div>
+          <div class="mt-4 flex gap-3 items-center chips">
+            <div class="chip">Free</div>
+            <div class="chip">Curated</div>
+            <div class="chip">Updated</div>
           </div>
 
           <div class="mt-8 grid grid-cols-3 gap-4 max-w-md">
@@ -126,7 +114,7 @@
                 src="/cote-banner.jpg"
                 alt="Oshi no Ko cover"
                 class="card-image"
-              />
+              >
               <div class="card-gradient" />
               <div class="card-stripes" />
               <div class="card-content">
@@ -449,6 +437,46 @@ body,
 .card-main:hover .card-image {
   transform: scale(1.03);
   filter: brightness(0.85);
+}
+.chips {
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.32);
+  color: #bbf7d0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: visible;
+}
+.chip::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #bbf7d0, #16a34a);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+  animation: pulse 1.6s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 section[aria-label='Main hero'] {
   max-width: 100vw;
