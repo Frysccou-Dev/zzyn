@@ -23,4 +23,17 @@ export default defineNuxtConfig({
   ui: {
     prefix: 'Nuxt',
   },
+
+  app: {
+    head: {
+      title: 'Zzyn',
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico',
+        },
+      ],
+    },
+  },
 });
