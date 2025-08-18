@@ -14,28 +14,30 @@
         </div>
       </div>
 
-      <nav class="flex items-center gap-3 flex-1 justify-center">
+      <nav
+        class="flex flex-1 justify-center items-center md:flex-row flex-col md:gap-3 gap-2 w-full md:w-auto"
+      >
         <a
           href="#info"
-          class="text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
+          class="w-full md:w-auto text-center text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
         >
           About
         </a>
         <a
           href="#recommendations"
-          class="text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
+          class="w-full md:w-auto text-center text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
         >
           Recommendations
         </a>
         <a
           href="#demo-form"
-          class="text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
+          class="w-full md:w-auto text-center text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
         >
           Request demo
         </a>
         <a
           href="#contact"
-          class="text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
+          class="w-full md:w-auto text-center text-sm px-3 py-1 rounded-full bg-black/10 text-green-200 hover:bg-black/20 hover:text-white transition transform hover:-translate-y-0.5"
         >
           Contact
         </a>

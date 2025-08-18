@@ -1,6 +1,9 @@
 <template>
   <aside
-    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 lg:left-8 lg:top-1/2 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2 z-50"
+    :class="[
+      'fixed bottom-4 left-1/2 transform -translate-x-1/2 lg:left-8 lg:top-1/2 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2 z-50 transition-all duration-300',
+      hidden ? 'opacity-0 pointer-events-none translate-y-6' : 'opacity-100',
+    ]"
   >
     <nav
       class="flex flex-row lg:flex-col items-center gap-3 p-2 bg-black/30 backdrop-blur-lg rounded-full border border-green-900/20 shadow-[0_10px_30px_rgba(2,6,23,0.6)]"
@@ -45,6 +48,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { Home, Info, List, Play, Mail } from 'lucide-vue-next';
 
 const active = ref('home');
+const hidden = ref(false);
 
 const items = [
   { id: 'home', label: 'Home', icon: Home },
@@ -110,6 +114,21 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('hashchange', setActiveFromHash);
+});
+
+onMounted(() => {
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+  const obs = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        hidden.value = e.isIntersecting;
+      }
+    },
+    { root: null, threshold: 0 }
+  );
+  obs.observe(footer);
+  onUnmounted(() => obs.disconnect());
 });
 </script>
 
